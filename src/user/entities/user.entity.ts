@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Role } from "../userRole.type";
 import { Reservation } from "src/reservation/entities/reservation.entity";
+import { Point } from "src/point/entities/point.entity";
 @Entity({
   name: "user"
 })
@@ -32,4 +33,7 @@ export class User {
 
   @OneToMany(() => Reservation, (reservation) => reservation.user, { nullable: false })
   reservations: Reservation[];
+
+  @ManyToOne(() => Point, (point) => point.users, { nullable: false })
+  point: Point;
 }
