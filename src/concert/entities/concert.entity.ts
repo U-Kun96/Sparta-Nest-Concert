@@ -7,7 +7,7 @@ export class Concert {
   @PrimaryGeneratedColumn()
   concertId: number;
 
-  @Column({ type: "varchar", length: 50, nullable: false })
+  @Column({ type: "varchar", length: 50, unique: true, nullable: false })
   title: string;
 
   @Column({ type: "varchar", length: 20, nullable: false })
