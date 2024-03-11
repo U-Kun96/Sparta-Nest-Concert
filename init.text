@@ -49,3 +49,5 @@ class-validator class-transformer multer @types/multer papaparse @types/papapars
     "esModuleInterop": true
   }
 }
+
+npm i @nestjs/config joi 패키지 설치
