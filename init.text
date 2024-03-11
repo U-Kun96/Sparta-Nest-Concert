@@ -1,0 +1,51 @@
+- npm init -y -> npm으로 프로젝트 초기화
+
+- tsc --init -> tsconfig.json파일 만듦
+
+- tsconfig.json 파일에서 이것저것 켜둠
+
+- git init . 했음
+
+- git add . 으로 변경사항 모두 add
+
+- git commit -m "세팅세팅" 으로 초기 커밋
+
+- git branch -M main 으로 현재 master브랜치를 main으로 변경한다
+
+- git remote add origin 레포지토리 주소 -> 깃허브 레포지토리에 원격 저장소 추가(설정)
+
+- git push -u origin main으로 깃허브 레포지토리에 push 진행
+
+- nest 명령어로 nest가 있나 확인
+
+- nest new concert_page 명령어로 nest concert_page 프로젝트 초기화
+
+- .eslintrc.js rules에 "prettier/prettier":0 으로 eslint 에러 처리
+
+- concert_page 프로젝트 파일에 패키지 다운로드
+npm i @nestjs/config @nestjs/jwt @nestjs/passport passport passport-jwt @types/passport-jwt typeorm @nestjs/typeorm mysql2 multer bcrypt @types/bcrypt
+class-validator class-transformer multer @types/multer papaparse @types/papaparse joi typeorm-naming-strategies lodash @types/lodash
+
+- tsconfig.json파일에 아래 코드 복붙
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "esModuleInterop": true
+  }
+}
