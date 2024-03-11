@@ -53,3 +53,7 @@ class-validator class-transformer multer @types/multer papaparse @types/papapars
 - npm i @nestjs/config joi 패키지 설치
 
 - nest g resource user, concert, reservation, point 했음
+
+- user, concert, reservation, point 엔티티 작성 완료
+
+- user, concert, reservation, point dto 할꺼임
