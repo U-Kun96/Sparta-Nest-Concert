@@ -1,5 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Reservation } from "src/reservation/entities/reservation.entity";
 @Entity({
   name: "concert"
 })
@@ -24,4 +24,7 @@ export class Concert {
 
   @Column({ type: "varchar", length: 30, nullable: false })
   concertDay: string;
+
+  @OneToMany(() => Reservation, (reservation) => reservation.concert, { nullable: false })
+  reservations: Reservation[];
 }

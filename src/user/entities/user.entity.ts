@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Role } from "../userRole.type";
+import { Reservation } from "src/reservation/entities/reservation.entity";
 @Entity({
   name: "user"
 })
@@ -28,4 +29,7 @@ export class User {
   @Column({ type: "enum", enum: Role, default: Role.User })
   @CreateDateColumn()
   createdAt: Date;
+
+  @OneToMany(() => Reservation, (reservation) => reservation.user, { nullable: false })
+  reservations: Reservation[];
 }
