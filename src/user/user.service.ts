@@ -1,26 +1,24 @@
-import { Injectable } from "@nestjs/common";
+import { ConflictException, Injectable } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
+import { User } from "./entities/user.entity";
+import { Repository } from "typeorm";
 
 @Injectable()
 export class UserService {
-  signUp: any;
-  create(createUserDto: CreateUserDto) {
-    return "This action adds a new user";
-  }
+  constructor(
+    @InjectableRepository(User)
+    private userRepository: Repository<User>
+    private readonly jwtService: JwtService
+  ) {}
 
-  findAll() {
-    return `This action returns all user`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
-  }
-
-  update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async signIn(email: string, password: string) {
+    const existingUser = await this.findByEmail(email)
+    if(existingUser) {
+      throw new ConflictException(
+        "이미 가입된 이메일입니다."
+      )
+    }
   }
 }
+
+
