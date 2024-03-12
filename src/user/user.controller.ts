@@ -13,6 +13,8 @@ import {
 import { UserService } from "./user.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { LoginUserDto } from "./dto/login-user.dto";
+import { UserProfile } from "src/utils/userProfile.decorator";
+import { User } from "./entities/user.entity";
 
 @Controller("user")
 export class UserController {
@@ -44,10 +46,10 @@ export class UserController {
 
   @UseGuards(AuthGuard("jwt"))
 
-  // 프로필 보기
+  // 프로필 보기(상세조회)
   @Get(":userId")
-  findAll() {
-    return this.userService.findAll();
+  getUserProfile(@UserProfile() user: User) {
+    return { email: user.email };
   }
 
   @Get(":id")
